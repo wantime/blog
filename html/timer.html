@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+ul
+{
+    list-style: none;
+    margin: 0;
+    margin-top: 80px;
+    padding: 0; 
+}
+
+a
+{
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    color: #f38f45;
+    padding: 20px 40px;
+}
+a[title]
+{
+    font-weight: bold;
+}
+a:hover
+{    
+    background-color: #444;
+}
+
+body
+{
+    background-color: #111;
+    color: #f38f45;
+}
+#main
+{
+    margin-top: 95px;
+    margin-left: 250px;
+}
+#warp
+{
+    height: 40px;
+    font-size: 30px;
+}
+.side_bar
+{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    background: #333;
+    overflow: hidden;
+}
+</style>
+</head>
+<body>
+<div id='main'>
+        <div id='warp'>本次番茄钟剩余的时间：
+        </div> 
+        <div id="count">这一阶段你复习的总时间：
+        </div>
+</div>
+<div class="side_bar">
+    <ul>
+        <li><a href="javascript:start();" title="点击开始计时">开始</a></li>
+        <li><a href="javascript:stop();"  title="点击停止计时">暂停</a></li>
+        <li><a href="javascript:reset();"  title="点击重置计时">重置</a></li>
+    </ul>
+</div>
+</body>
+<script>
+var tomato = 1500;
+var m;
+var s;
+var amount_m = 0;
+var amount_s = 0;
+var t;
+function start(){
+    m = Math.floor(tomato/60);
+    s = tomato%60;
+    if (Math.floor(s/10) < 1) {
+        document.getElementById('warp').innerHTML = '本次番茄钟剩余的时间：'+m+':0'+s;
+    }
+    else
+    {
+        document.getElementById('warp').innerHTML = '本次番茄钟剩余的时间：'+m+':'+s;
+    }
+    
+    tomato--;
+    if (Math.floor(amount_s/10) < 1) {
+        document.getElementById('count').innerHTML = '这一阶段你复习的总时间：'+amount_m+':0'+amount_s;
+    }
+    else{
+        document.getElementById('count').innerHTML = '这一阶段你复习的总时间：'+amount_m+':'+amount_s;
+    }
+    amount_s++;
+    if(amount_s == 60)
+    {
+        amount_m += 1;
+        amount_s = 0;
+    }
+    t = setTimeout('start()',1000);
+}
+function stop()
+{
+ clearTimeout(t);
+}
+function reset()
+{
+    tomato = 1500;
+    document.getElementById('warp').innerHTML = "本次番茄钟剩余的时间：25:00";
+    stop();
+}
+
+</script>
+</html>

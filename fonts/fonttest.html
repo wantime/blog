@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+body
+{
+    background-color: #111;
+    color: #eee;
+}
+#main
+{
+    display: table;
+    margin: 10% auto;
+}
+#warp
+{
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+}
+input
+{
+    width: 60px;
+    height: 28px;
+    margin: 30px;
+    background-color: #329446;
+    border: none;
+    cursor: pointer;
+    color: #ddd;
+}
+input:active
+{
+    width: 60px;
+    height: 28px;
+    margin: 30px;
+    background-color: #345678;
+    cursor: pointer;
+}
+#count
+{
+    display: table;
+    margin: 0 auto;
+}
+</style>
+</head>
+<body>
+<div id='main'>
+        <div id='warp'>
+        </div> 
+        <div id="count">
+        </div>
+        <input type="button" onclick="start()" value='开始'>
+        <input type="button" onclick="stop()" value='暂停'>
+        <input type="button" onclick="reset()" value='重置'>
+</div>
+</body>
+<script>
+var tomato = 1500;
+var m;
+var s;
+var amount_m;
+var amount_s =0;
+var t;
+function start(){
+    m = Math.floor(tomato/60);
+    s = tomato%60;
+    document.getElementById('warp').innerHTML = '本次番茄钟剩余的时间：'+m+':'+s;
+    tomato--;
+    document.getElementById('count').innerHTML = '这一阶段你复习的总时间：'+amount_m+':'+amount_s;
+    amount_s++;
+    if(amount_s = 60)
+    {
+        amount_m += 1;
+        amount_s =0;
+    }
+    t = setTimeout('start()',1000);
+}
+function stop(){
+ clearTimeout(t);
+}
+function reset()
+{
+    tomato = 1500;
+    document.getElementById('warp').innerHTML = tomato;
+    stop();
+}
+
+</script>
+</html>

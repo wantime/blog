@@ -1,0 +1,100 @@
+body {
+	background-color: #fff4c3;
+}
+.clearfix:after
+{
+	content:"";
+	display: block;
+	clear: both;
+}
+header {
+	border-bottom: 1px dashed #999;
+}
+nav {
+	max-width: 800px;
+	margin: 0 auto;
+	height: 10%;
+}
+nav h1 {
+	float: left;
+	font-size: 1em;
+	padding: 1em;
+}
+nav ul
+{
+	list-style: none;
+	float: right;
+}
+nav li
+{	
+	display: inline-block;
+	padding: 2em;
+	font-size: 0.6em;
+	margin-top: 0.7em;
+
+}
+nav a {
+	text-decoration: none;
+	color: #666;
+}
+nav a:hover {
+	text-decoration: underline;
+}
+.main_article {
+	width: 480px;
+}
+section {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+section > article {
+	float: left;
+	margin: 10px;
+	border-radius: 20px;
+	background-color: #fff;
+	height: 360px;
+	overflow: hidden;
+	color: #331;
+}
+.article {
+	width: 230px;
+}
+.heading {
+	margin-top: -80px;
+}
+h4 {
+	font-weight: normal;
+}
+.heading h4, .heading h2 {
+	color: #fff;
+}
+article h4 , article h2 ,article p{
+	margin: 0 20px;
+	line-height: 1.4em;
+}
+article p {
+	font-size: 0.8em;
+	margin: 0 1em;
+	line-height: 1.2em; 
+}
+.sub_heading {
+	font-size: 0.6em;
+	font-family: Impact;
+	letter-spacing: 1px;
+}
+.img_preview img{
+	width: 100%;
+}
+.words {
+	margin-top: 0.6em;
+}
+.headline {
+	color: #aaa;
+	font-size: 0.5em;
+	margin-bottom: 0.5em;
+}
+span {
+	font-weight: bold;
+	font-size: 0.3em;
+	color: #222;
+}
